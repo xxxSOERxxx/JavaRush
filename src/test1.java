@@ -1,32 +1,54 @@
+import JavaRush13.Translate;
+
 public class test1 {
     public static void main(String [] args) {
-        System.out.println("Пашка ");
-        int myInt = 10;
-        short myShort = 3250; // от -32000 до 32000
-        long myLong = 64000; // длинные
-        double myDouble = 25.45;
-        float myFloat = 5454 / 4f; //типа double
-        char myChar = 'd'; // символ
-        boolean myBoolean = true; //может быть или true или false
-        byte myByte = 32; //от -128 до 128
-        String s = "Hello";
-        System.out.println(s + ' ' + myInt);
-        if (myInt == 1) {//если условие выполняется
-            while (myInt < myDouble) {//цикл пока выполняется условие
-                System.out.println(myInt); // sout + Tab
-                myInt = myInt + 2;
+
+                Object obj = new Circle();
+                Movable movable = (Movable) obj;
+                Drawable drawable = new Rectangle();
+
+                printMainInfo(drawable);
+                printMainInfo(movable);
+            }
+
+            public static void printMainInfo(Object object) {
+                //напишите тут ваш код
+                if (object instanceof Drawable) {
+                    ((Drawable) object).draw();
+                } else if (object instanceof Movable) {
+                    ((Movable) object).move();
+
+                }
+            }
+            static interface Movable {
+
+                void move();
+            }
+
+            static class Circle implements Movable {
+
+                public void draw() {
+                    System.out.println("Can be drawn");
+                }
+
+                public void move() {
+                    System.out.println("Can be moved");
+                }
+
+            }
+
+            static interface Drawable {
+                void draw();
+            }
+
+            static class Rectangle implements Drawable {
+                public void draw() {
+                    System.out.println("Can be drawn");
+                }
+
+                public void move() {
+                    System.out.println("Can be moved");
+                }
             }
         }
-        else{
-                System.out.println("if не выполняется");
-             }
-
-        for (int a = 1; a < 5; a++){            //a++ это a = a+1
-            System.out.println("555   " + a);
-        }
-
-
-    }
-}
-
 
